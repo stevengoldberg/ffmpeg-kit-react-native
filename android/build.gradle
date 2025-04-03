@@ -1,9 +1,10 @@
-task prepareLibrary {
-    doLast {
-        exec {
-            commandLine 'bash', '-c', './ffmpreg-kit/android.sh' // Adjust as needed
-        }
+
+task prepareFfmpregKit {
+  doLast {
+    exec {
+      commandLine 'bash', '-c', './ffmpreg-kit/android.sh'
     }
+  }
 }
 
 preBuild.dependsOn prepareLibrary
