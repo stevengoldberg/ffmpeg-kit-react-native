@@ -1,3 +1,13 @@
+task prepareLibrary {
+    doLast {
+        exec {
+            commandLine 'bash', '-c', './ffmpreg-kit/android.sh' // Adjust as needed
+        }
+    }
+}
+
+preBuild.dependsOn prepareLibrary
+
 buildscript {
   repositories {
     google()
