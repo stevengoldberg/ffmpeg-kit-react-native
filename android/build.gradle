@@ -127,10 +127,10 @@ repositories {
 dependencies {
   api 'com.facebook.react:react-native:+'
   //implementation 'com.arthenica:ffmpeg-kit-' + safePackageName(safeExtGet('ffmpegKitPackage', 'https')) + ':' + safePackageVersion(safeExtGet('ffmpegKitPackage', 'https'))
-  //project(':ffmpeg-kit')
+  implementation fileTree(include: ['*.jar', '*.aar'], dir: '../libs/android')
 }
 
-tasks.register("buildFFmpegKit") {
+/*tasks.register("buildFFmpegKit") {
   doLast {
     if (android.ndkDirectory == null || android.ndkDirectory.path == "null" || !android.ndkDirectory.exists()) {
       throw new GradleException("Invalid NDK directory ${android.ndkDirectory}")
@@ -155,4 +155,4 @@ tasks.register("buildFFmpegKit") {
   }
 }
 
-preBuild.dependsOn buildFFmpegKit
+preBuild.dependsOn buildFFmpegKit*/
