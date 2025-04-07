@@ -140,6 +140,14 @@ tasks.register("buildFFmpegKit") {
     println("ANDROID_NDK_ROOT = ${android.ndkDirectory.absolutePath}")
     exec {
       workingDir "${project.projectDir}/../ffmpreg-kit"
+      commandLine "mkdir", "-p", "./android/ffmpeg-kit-android-lib/src/main/res/raw"
+    }
+    exec {
+      workingDir "${project.projectDir}/../ffmpreg-kit"
+      commandLine "touch", "./android/ffmpeg-kit-android-lib/src/main/res/raw/license_cpu_features.txt"
+    }
+    exec {
+      workingDir "${project.projectDir}/../ffmpreg-kit"
       environment "ANDROID_SDK_ROOT", android.sdkDirectory.absolutePath
       environment "ANDROID_NDK_ROOT", android.ndkDirectory.absolutePath
       commandLine "bash", "./android.sh"
